@@ -1,0 +1,18 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hello, {{ user.full_name }}!</h1>
+{% for post in posts %}
+<div><p>{{ post.author.nickname }} says: <b>{{ post.body }}</b></p></div>
+{% endfor %}
+<h2>Active Users</h2>
+<div><p>
+{% for post in posts %}
+<b>{{ post.author.nickname }}</b>
+{% endfor %}
+<h2>Projects</h2>
+{% for project in projects %}
+<i>{{ project.name }}</i><br>
+{% endfor %}
+{% endblock %}
