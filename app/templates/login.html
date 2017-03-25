@@ -5,10 +5,10 @@
   <h1>Sign In</h1>
   <form action="" method="post" name="login" class="form-horizontal">
       {{ form.hidden_tag() }}
-      <p class="control-group">
+      <div class="control-group">
           Email:
           {{ form.username(size=80) }}
-      </p>
+      </div>
       <p>
 	  Password:
 	  {{ form.password(size=80) }}
