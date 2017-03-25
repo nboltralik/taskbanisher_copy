@@ -3,11 +3,11 @@
 
 {% block content %}
   <h1>Sign In</h1>
-  <form action="" method="post" name="login" class="form-horizontal">
+  <form action="" method="post" name="login" class="form-inline">
       {{ form.hidden_tag() }}
       <p>
-          Please enter your email and password:<br>
-          {{ form.username(size=80) }}<br>
+          Please enter your email and password:
+          {{ form.username(size=80) }}
           {{ form.password(size=80) }}
       </p>
       <p>{{ form.remember_me }} Remember Me</p>
