@@ -6,11 +6,11 @@
   <form action="" method="post" name="login" class="form-horizontal">
       {{ form.hidden_tag() }}
       <div class="control-group">
-          <label class="control-label">Email: </label>
-          {{ form.username(size=80) }}
+          <label class="control-label">Email</label>
+          <div class="controls">{{ form.username(size=80) }}</div>
       </div>
       <div class="control-group">
-	  <label class="control-label">Password: </label>
+	  <label class="control-label">Password</label>
 	  <div class="controls">{{ form.password(size=80) }}</div>
       </div>
       <p>{{ form.remember_me }} Remember Me</p>
