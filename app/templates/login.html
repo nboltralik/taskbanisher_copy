@@ -13,7 +13,9 @@
 	  <label class="control-label">Password</label>
 	  <div class="controls">{{ form.password(size=80) }}</div>
       </div>
-      <p>{{ form.remember_me }} Remember Me</p>
+      <div class="control-group">
+	  <label class="checkbox">{{ form.remember_me }} Remember Me</label>
+      </div>
       <p><input type="submit" value="Sign In"></p>
   </form>
 {% endblock %}
