@@ -1,12 +1,68 @@
-<!-- extend from base layout -->
-{% extends "base.html" %}
-
-{% block content %}
-<h1>{{ user.full_name }}'s Quests!</h1>
-{% for quest in quest_objects %}
-    <p><b>{{ quest.name }}</b></p>
-    {% for task in quest.tasks %}
-        <p>{{ task.content }}</p>
-    {% endfor %} 
-{% endfor %}
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <style>
+            
+            div.container {
+                width: 100%;
+                border: 1px solid gray;
+            }
+        
+        header, footer {
+            padding: 1em;
+            color: white;
+            background-color: rgb(91,70,35);
+            clear: left;
+            font-family: minion;
+            text-align: center;
+        }
+        
+        article {
+            border-right: 1px solid gray;
+            border-left: 1px solid gray;
+            padding: 1em;
+            font-family: minion;
+            overflow: hidden;
+        }
+        a {
+            background-color:transparent;
+            color: blue;
+        }
+        
+            </style>
+    </head>
+    <body>
+        
+        <div id="main" class="container">
+            
+            <header>
+                <h1>Quest Log</h1>
+            </header>
+            
+            <article>
+            <!-- extend from base layout -->
+            {% extends "base.html" %}
+            
+            {% block content %}
+            <h1 style="text-align:center">{{ user.full_name }}'s Quests!</h1>
+            {% for quest in quest_objects %}
+            <p style="text-align:center"><b>{{ quest.name }}</b></p>
+            {% for task in quest.tasks %}
+            <p style="text-align:center">{{ task.content }}</p>
+            {% endfor %} 
+            {% endfor %}
+            {% endblock %}
+            </article>
+            
+            <footer>
+                <br />
+                <br />
+                <br />
+                <br />
+            </footer>
+            
+        </div>
+        
+    </body>
+</html>
