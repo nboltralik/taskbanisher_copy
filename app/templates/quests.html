@@ -1,0 +1,12 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ user.full_name }}'s Quests!</h1>
+{% for quest in quest_objects %}
+    <p><b>{{ quest.name }}</b></p>
+    {% for task in quest.tasks %}
+        <p>{{ task.content }}</p>
+    {% endfor %} 
+{% endfor %}
+{% endblock %}

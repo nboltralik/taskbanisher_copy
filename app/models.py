@@ -20,7 +20,7 @@ class User(db.Model):
 class Quest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     questName = db.Column(db.String(64), index=True, unique=False)
-    quest_id = db.Column(db.Integer, index=True, unique=True)
+    quest_id = db.Column(db.String(64), index=True, unique=False)
     tasks = db.Column(db.Integer, index=True, unique=False)
     pic = db.Column(db.String(32), index=True, unique=False)
     

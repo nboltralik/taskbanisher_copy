@@ -11,16 +11,9 @@
 <h3>{{ karma }}</h3>
 <h2>Level (from db)</h2>
 <h2>Latest Quest</h2>
-<!-- Use quest list from db -->
 <p>Project name: {{ sample_project.name }}</p>
 {% for task in tasks %}
 <p>{{ task.content }}</p>
-{% endfor %}
-{% for quest in quest_objects %}
-<p><b>{{ quest.name }}</b></p>
-    {% for task in quest.tasks %}
-    <p>{{ task.content }}</p>
-    {% endfor %} 
 {% endfor %}
 
 {% endblock %}
