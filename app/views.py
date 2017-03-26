@@ -28,3 +28,10 @@ def login():
     return render_template('login.html', 
                            title='Sign In',
                            form=form)
+@app.route('/quests')
+def quests():
+    return render_template('quests.html')
+
+@app.route('/customization')
+def customization():
+    return render_template('customization.html')
