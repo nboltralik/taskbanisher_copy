@@ -7,6 +7,7 @@
     </header>
     <article>
     <h1 style="text-align:center">{{ user.full_name }}'s Quests!</h1>
+    <h2 style="text-align:center"><a href="/quests/add">Add Quest</a></h2>
     {% for quest in quest_objects %}
     <p style="text-align:center"><b>{{ quest.name }}</b></p>
     {% for task in quest.tasks %}

@@ -2,6 +2,7 @@ from flask import render_template, flash, redirect
 from app import app
 from .forms import LoginForm
 from .forms import CustomizationForm
+from .forms import AddQuestForm
 from pytodoist import todoist
 from app import db, models
 import math
@@ -15,7 +16,9 @@ def index():
     latest_quest = user.get_project(quest.quest_id)
     tasks = latest_quest.get_tasks();
     karma = user.karma
-    completed_tasks_count = len(user.get_completed_tasks())
+    #completed_tasks_count = len(user.get_completed_tasks())
+    stats = user.get_productivity_stats()
+    completed_tasks_count = stats['completed_count']
     score = (karma * .1 + completed_tasks_count * .9) * .5
     level = math.floor(score / 150)
     head = models.User.query.get(3).head
@@ -72,11 +75,28 @@ def customization():
     form = CustomizationForm()
     if form.validate_on_submit():
         user = models.User.query.get(3)
-        user.head = form.head.data
-        user.body = form.torso.data
-        user.feet = form.shoes.data
-        user.title = form.title.data
+        if form.head.data != 'nochange':
+            user.head = form.head.data
+        if form.torso.data != 'nochange':
+            user.body = form.torso.data
+        if form.shoes.data != 'nochange':
+            user.feet = form.shoes.data
+        if form.title.data != '':
+            user.title = form.title.data
         db.session.commit()
         return redirect('/index')
     return render_template('customization.html',
+                           form=form)
+
+@app.route('/quests/add', methods=['GET', 'POST'])
+def add_quest():
+    form = AddQuestForm()
+    if form.validate_on_submit():
+        user = models.User.query.get(3)
+        if form.name.data != '':
+            project_name = form.name.data
+            user = todoist.login('davidmccoy@outlook.com', '1001052!')
+            user.add_project(project_name)
+        return redirect('/quests')
+    return render_template('add_quest.html',
                            form=form)

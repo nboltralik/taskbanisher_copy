@@ -1,0 +1,14 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <header>Add Quest!</header>
+  <form action="" method="post" name="inputs" class="form-horizontal" style="margin-top:8px;">
+      {{ form.hidden_tag() }}
+      <div class="control-group">
+	      <label class="control-label">{{ form.name.label }}</label>
+	      <div class="controls">{{ form.name }}</div>
+      </div>
+      <p><input type="submit" value="Start Quest"></p>
+  </form>
+{% endblock %}
