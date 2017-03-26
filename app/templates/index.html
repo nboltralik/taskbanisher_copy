@@ -2,8 +2,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Get it done, {{ user.full_name }}!</h1>
+<header>Get it done, {{ user.full_name }}!</header>
 <!-- Load picture of person -->
+<article>
 <p>(Hero Picture)</p>
 <p>(Cool Title)</p>
 <h2>POINTS</h2>
@@ -11,9 +12,9 @@
 <h3>{{ karma }}</h3>
 <h2>Level (from db)</h2>
 <h2>Latest Quest</h2>
-<p>Project name: {{ sample_project.name }}</p>
+<p><b>{{ latest_quest.name }}</b></p>
 {% for task in tasks %}
 <p>{{ task.content }}</p>
 {% endfor %}
-
+</article>
 {% endblock %}

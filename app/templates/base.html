@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+            
+        .pagecontainer {
+            width: 100%;
+            border: 1px solid gray;
+        }
+        
+        header, footer {
+            padding: 1em;
+            color: white;
+            background-color: rgb(91,70,35);
+            clear: left;
+            font-family: minion;
+            text-align: center;
+        }
+        footer {
+            height: 50px;
+        }
+        article {
+            border-right: 1px solid gray;
+            border-left: 1px solid gray;
+            padding: 1em;
+            font-family: minion;
+            overflow: hidden;
+        }
+        a {
+            background-color:transparent;
+            color: blue;
+        }
+        nav {
+            background-color: lightgray;
+            text-align: center;
+        }
+    </style>
     {% if title %}
     <title>{{ title }} - TaskBanisher</title>
     {% else %}
@@ -13,7 +47,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div class="container">TaskBanisher: <a href="/index">Home</a> <a href="/login">Login</a> <a href="/quests">Quests</a> <a href="/customization">Customization</a></div>
+    <div class="pagecontainer">
+    <div class="nav">TaskBanisher: <a href="/index">Home</a> <a href="/login">Login</a> <a href="/quests">Quests</a> <a href="/customization">Customization</a></div>
     <hr>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
@@ -25,5 +60,7 @@
       {% endif %}
     {% endwith %}
     {% block content %}{% endblock %}
+    <footer>Created by the cool team</footer>
+    </div>
   </body>
 </html>

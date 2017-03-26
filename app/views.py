@@ -11,15 +11,16 @@ def index():
     #pull username and password from table
     users = models.User.query.all()
     user = todoist.login('davidmccoy@outlook.com', '1001052!')
-    sample_project = user.get_project('ECE 383')
-    tasks = sample_project.get_tasks();
+    quest = models.Quest.query.get(1)
+    latest_quest = user.get_project(quest.quest_id)
+    tasks = latest_quest.get_tasks();
     karma = user.karma
     return render_template('index.html',
                            title='Home',
                            user=user,
                            karma=karma,
                            tasks=tasks,
-                           sample_project=sample_project)
+                           latest_quest=latest_quest)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()

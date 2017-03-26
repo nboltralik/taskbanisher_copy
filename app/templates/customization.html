@@ -1,15 +1,22 @@
+<!-- extend from base layout -->
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Customization</h1>
- <form action="" method="post" name="customization" class="form-horizontal">
+  <h1>Customize!</h1>
+  <form action="" method="post" name="inputs" class="form-horizontal">
       {{ form.hidden_tag() }}
       <div class="control-group">
-          <label class="control-label">Head</label>
+          <label class="control-label">head</label>
           <div class="controls">{{ form.head }}</div>
       </div>
+      <div class="control-group">
+	  <label class="control-label">body</label>
+	  <div class="controls">{{ form.body }}</div>
       </div>
-      <p><input type="submit" value="Sign In"></p>
+      <div class="control-group">
+	  <label class="control-label">kicks</label>
+	  <div class="controls">{{ form.shoes }}</div>
+      </div>
+      <p><input type="submit" value="Save Hero!!"></p>
   </form>
-  {% endblock %}
-
+{% endblock %}
