@@ -2,10 +2,13 @@ from flask import render_template, flash, redirect
 from app import app
 from .forms import LoginForm
 from pytodoist import todoist
+from app import db, models
 
 @app.route('/')
 @app.route('/index')
 def index():
+    #pull username and password from table
+    users = models.User.query.all()
     user = todoist.login('davidmccoy@outlook.com', '1001052!')
     projects = user.get_projects()
     karma = user.karma
@@ -13,7 +16,8 @@ def index():
                            title='Home',
                            user=user,
                            projects=projects,
-                           karma=karma)
+                           karma=karma,
+                           users=users)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()

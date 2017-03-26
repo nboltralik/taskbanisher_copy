@@ -16,4 +16,8 @@
 <i>{{ project.name }}</i><br>
 {% endfor %}
 <h3>{{ karma }}</h3>
+<h3>Users Database</h3>
+{% for u in users %}
+<p>{{ u.username }}, {{ u.title }}, {{ u.ourKarma }}</p>
+{% endfor %}
 {% endblock %}
