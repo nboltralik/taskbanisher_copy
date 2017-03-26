@@ -16,9 +16,9 @@
         <!--<h3>{{ karma }}</h3>-->
         <h2>Level {{ level }}</h2>
         <h2>Latest Quest</h2>
-        <p><b>{{ latest_quest.name }}</b></p>
+        <p style="text-align:center"><b>{{ latest_quest.name }}</b></p>
         {% for task in tasks %}
-        <p>{{ task.content }}</p>
+        <p style="text-align:center">{{ task.content }}</p>
         {% endfor %}
     </div>
 </div>
