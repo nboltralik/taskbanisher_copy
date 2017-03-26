@@ -9,8 +9,8 @@ class LoginForm(Form):
 
 
 class CustomizationForm(Form):
-	head = SelectField('Head', choices = [('happy.png', 'Happy Face'), ('sad.png', 'Sad Face'), 'surprised.png', ('Surprised Face')])
-	torso = SelectField('Body', choices = [('blackbody.png', 'Black'), ('greenbody.png', 'Green'), ('bluebody.png', 'Blue')])
-	shoes = SelectField('Shoes', choices = [('blackshoes.png', 'Black'), ('greenshoes.png', 'Green'), ('blueshoes.png', 'Blue')])
+	head = SelectField('Head: ', choices = [('happy.png', 'Happy Face'), ('sad.png', 'Sad Face'), ('surprised.png', 'Surprised Face')])
+	torso = SelectField('Torso: ', choices = [('blackbody.png', 'Black'), ('greenbody.png', 'Green'), ('bluebody.png', 'Blue')])
+	shoes = SelectField('Kicks: ', choices = [('blackshoes.png', 'Black'), ('greenshoes.png', 'Green'), ('blueshoes.png', 'Blue')])
 	titleUpdate = StringField('Update Title')
 	submit = SubmitField('Save Hero!!')

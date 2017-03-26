@@ -2,19 +2,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Customize!</h1>
-  <form action="" method="post" name="inputs" class="form-horizontal">
+  <header>Customize!</header>
+  <form action="" method="post" name="inputs" class="form-horizontal" style="margin-top:8px;">
       {{ form.hidden_tag() }}
       <div class="control-group">
-          <label class="control-label">head</label>
+          <label class="control-label">{{ form.head.label }}</label>
           <div class="controls">{{ form.head }}</div>
       </div>
       <div class="control-group">
-	  <label class="control-label">body</label>
-	  <div class="controls">{{ form.body }}</div>
+	      <label class="control-label">{{ form.torso.label }}</label>
+	      <div class="controls">{{ form.torso }}</div>
       </div>
       <div class="control-group">
-	  <label class="control-label">kicks</label>
+	  <label class="control-label">{{ form.shoes.label }}</label>
 	  <div class="controls">{{ form.shoes }}</div>
       </div>
       <p><input type="submit" value="Save Hero!!"></p>
