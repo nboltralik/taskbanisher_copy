@@ -16,12 +16,11 @@
 {% for task in tasks %}
 <p>{{ task.content }}</p>
 {% endfor %}
-<!-- 
-{% for quest in quests_array %}
-<p>{{ quest.name }}</p>
-    {% for task in quest.task_array %}
+{% for quest in quest_objects %}
+<p><b>{{ quest.name }}</b></p>
+    {% for task in quest.tasks %}
     <p>{{ task.content }}</p>
     {% endfor %} 
-{% endfor %} -->
+{% endfor %}
 
 {% endblock %}
