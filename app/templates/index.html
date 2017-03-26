@@ -4,17 +4,22 @@
 {% block content %}
 <header>Get it done, {{ user.full_name }}!</header>
 <!-- Load picture of person -->
-<article>
-<p>(Hero Picture)</p>
-<p>(Cool Title)</p>
-<h2>POINTS</h2>
-<!-- Get our points calculation instead of karma -->
-<h3>{{ karma }}</h3>
-<h2>Level (from db)</h2>
-<h2>Latest Quest</h2>
-<p><b>{{ latest_quest.name }}</b></p>
-{% for task in tasks %}
-<p>{{ task.content }}</p>
-{% endfor %}
-</article>
+<div class="content" style="margin-top:18px;margin-left:35%;">
+    <div id="hero" style="float:left;text-align:center">
+        <img src="{{ head_path }}" width="100px" style="margin-left:auto;margin-right:auto"><br>
+        <img src="{{ body_path }}" width="100px" style="margin-left:auto;margin-right:auto"><br>
+        <img src="{{ shoes_path }}" width="100px">
+        <h4>{{ hero_title }}</h4>
+    </div>
+    <div id="stats" style="float:left;margin-left:12px">
+        <h2>POINTS</h2>
+        <h3>{{ karma }}</h3>
+        <h2>Level {{ level }}</h2>
+        <h2>Latest Quest</h2>
+        <p><b>{{ latest_quest.name }}</b></p>
+        {% for task in tasks %}
+        <p>{{ task.content }}</p>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
