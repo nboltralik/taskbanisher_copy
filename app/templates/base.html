@@ -48,7 +48,16 @@
   </head>
   <body>
     <div class="pagecontainer">
-    <div class="nav">TaskBanisher: <a href="/index">Home</a> <a href="/quests">Quests</a> <a href="/customization">Customization</a></div>
+    <div class="navbar">
+		<div class="navbar-inner">
+			<a class="brand" href="#">TaskBanisher</a>			
+			<ul class="nav">
+				<li><a href="/index">Home</a></li>
+				<li><a href="/quests">Quests</a></li>
+				<li><a href="/customization">Customization</a></li>
+			</ul>
+		</div>
+	</div>
     <hr>
     {% with messages = get_flashed_messages() %}
       {% if messages %}
