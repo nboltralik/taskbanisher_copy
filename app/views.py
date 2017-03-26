@@ -13,8 +13,8 @@ import math
 def index():
     users = models.User.query.all()
     user = todoist.login('davidmccoy@outlook.com', '1001052!')
-    quest = models.Quest.query.get(1)
-    latest_quest = user.get_project(quest.quest_id)
+    quest = models.Quest.query.get(7)
+    latest_quest = user.get_project(quest.questName)
     tasks = latest_quest.get_tasks()
     karma = user.karma
     #completed_tasks_count = len(user.get_completed_tasks())
@@ -56,6 +56,7 @@ def quests():
     class quest_object():
         name = 'nothing'
         tasks = []
+        image = 'generic.png'
     quest_objects = []
     quests = models.Quest.query.all()
     for q in quests:
@@ -64,6 +65,10 @@ def quests():
             quest_object_instance.name = q.questName
             print(q.quest_id)
             quest_object_instance.tasks = user.get_project(q.quest_id).get_tasks()
+            if q.pic:
+                quest_object_instance.image = '/static/img/' + q.pic
+            else:
+                quest_object_instance.image = '/static/img/generic.png'
             quest_objects.append(quest_object_instance)
     return render_template('quests.html',
                            title='Quests',
@@ -103,7 +108,7 @@ def add_quest():
             user = todoist.login('davidmccoy@outlook.com', '1001052!')
             user.add_project(project_name)
             u = models.User.query.get(3)
-            quest = models.Quest(questName=project_name, quest_id=project_name, author=u)
+            quest = models.Quest(questName=project_name, pic=picture, quest_id=project_name, author=u)
             db.session.add(quest)
             db.session.commit()
         return redirect('/quests')

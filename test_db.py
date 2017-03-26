@@ -15,7 +15,9 @@ for u in users:
     print(u.username, u.title, u.email, u.password)
 
 
-#u = models.User.query.get(3)
+u = models.Quest.query.get(2)
+db.session.delete(u)
+
 #q1 = models.Quest(questName='Finding Nemo', quest_id=10101, tasks=5, pic='Nemo.jpg', author=u)
 #q2 = models.Quest(questName='Adventure', quest_id=55555, tasks=4, pic='Sword.jpg', author=u)
 #q3 = models.Quest(questName='Programming in C', quest_id=99999, tasks=3, pic='C.jpg', author=u)
@@ -23,7 +25,7 @@ for u in users:
 #db.session.add(q1)
 #db.session.add(q2)
 #db.session.add(q3)
-#db.session.commit()
+db.session.commit()
 
 quests = models.Quest.query.all()
 
