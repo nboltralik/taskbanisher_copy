@@ -5,6 +5,7 @@ from .forms import CustomizationForm
 from .forms import AddQuestForm
 from pytodoist import todoist
 from app import db, models
+from sqlalchemy import func
 import math
 
 @app.route('/')
@@ -14,7 +15,7 @@ def index():
     user = todoist.login('davidmccoy@outlook.com', '1001052!')
     quest = models.Quest.query.get(1)
     latest_quest = user.get_project(quest.quest_id)
-    tasks = latest_quest.get_tasks();
+    tasks = latest_quest.get_tasks()
     karma = user.karma
     #completed_tasks_count = len(user.get_completed_tasks())
     stats = user.get_productivity_stats()
