@@ -2,22 +2,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Hello, {{ user.full_name }}!</h1>
-{% for post in posts %}
-<div><p>{{ post.author.nickname }} says: <b>{{ post.body }}</b></p></div>
-{% endfor %}
-<h2>Active Users</h2>
-<div><p>
-{% for post in posts %}
-<b>{{ post.author.nickname }}</b>
-{% endfor %}
-<h2>Projects</h2>
+<!-- Load picture of person -->
+<h1>Get it done, {{ user.full_name }}!</h1>
+<h2>Points</h2>
+<!-- Get our points calculation instead of karma -->
+<h3>{{ karma }}</h3>
+<h2>Quests</h2>
+<!-- Use quest list from db -->
 {% for project in projects %}
 <i>{{ project.name }}</i><br>
-{% endfor %}
-<h3>{{ karma }}</h3>
-<h3>Users Database</h3>
-{% for u in users %}
-<p>{{ u.username }}, {{ u.title }}, {{ u.ourKarma }}</p>
 {% endfor %}
 {% endblock %}
