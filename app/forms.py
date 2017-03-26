@@ -9,8 +9,12 @@ class LoginForm(Form):
 
 
 class CustomizationForm(Form):
-	head = SelectField('Head: ', choices = [('happyFace.png', 'Happy Face'), ('sadFace.png', 'Sad Face'), ('surprisedFace.png', 'Surprised Face')])
-	torso = SelectField('Torso: ', choices = [('blackBody.png', 'Black'), ('greenBody.png', 'Green'), ('blueBody.png', 'Blue')])
-	shoes = SelectField('Kicks: ', choices = [('blackShoes.png', 'Black'), ('greenShoes.png', 'Green'), ('blueShoes.png', 'Blue')])
+	head = SelectField('Head: ', choices = [('nochange', ''), ('happyFace.png', 'Happy Face'), ('sadFace.png', 'Sad Face'), ('surprisedFace.png', 'Surprised Face')])
+	torso = SelectField('Torso: ', choices = [('nochange', ''), ('blackBody.png', 'Black'), ('greenBody.png', 'Green'), ('blueBody.png', 'Blue')])
+	shoes = SelectField('Kicks: ', choices = [('nochange', ''), ('blackShoes.png', 'Black'), ('greenShoes.png', 'Green'), ('blueShoes.png', 'Blue')])
 	title = StringField('Update Title')
 	submit = SubmitField('Save Hero!!')
+
+class AddQuestForm(Form):
+	name = StringField('Quest Name')
+	submit = SubmitField('Start Quest!')
