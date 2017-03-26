@@ -11,14 +11,14 @@
         <img src="{{ shoes_path }}" width="100px">
         <h4>{{ hero_title }}</h4>
     </div>
-    <div id="stats" style="float:left;margin-left:12px;text-align:center">
+    <div id="stats" style="float:left;margin-left:12px">
         <h2>POINTS: {{ karma }}</h2>
         <!--<h3>{{ karma }}</h3>-->
         <h2>Level {{ level }}</h2>
         <h2>Latest Quest</h2>
-        <p style="text-align:center"><b>{{ latest_quest.name }}</b></p>
+        <p><b>{{ latest_quest.name }}</b></p>
         {% for task in tasks %}
-        <p style="text-align:center">{{ task.content }}</p>
+        <p>{{ task.content }}</p>
         {% endfor %}
     </div>
 </div>
