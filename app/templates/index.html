@@ -2,14 +2,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- Load picture of person -->
 <h1>Get it done, {{ user.full_name }}!</h1>
-<h2>Points</h2>
+<!-- Load picture of person -->
+<p>(Hero Picture)</p>
+<p>(Cool Title)</p>
+<h2>POINTS</h2>
 <!-- Get our points calculation instead of karma -->
 <h3>{{ karma }}</h3>
-<h2>Quests</h2>
+<h2>Level (from db)</h2>
+<h2>Latest Quest</h2>
 <!-- Use quest list from db -->
-{% for project in projects %}
-<i>{{ project.name }}</i><br>
+<p>Project name: {{ sample_project.name }}</p>
+{% for task in tasks %}
+<p>{{ task.content }}</p>
 {% endfor %}
+<!-- 
+{% for quest in quests_array %}
+<p>{{ quest.name }}</p>
+    {% for task in quest.task_array %}
+    <p>{{ task.content }}</p>
+    {% endfor %} 
+{% endfor %} -->
+
 {% endblock %}

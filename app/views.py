@@ -10,14 +10,15 @@ def index():
     #pull username and password from table
     users = models.User.query.all()
     user = todoist.login('davidmccoy@outlook.com', '1001052!')
-    projects = user.get_projects()
+    sample_project = user.get_project('ECE 383')
+    tasks = sample_project.get_tasks();
     karma = user.karma
     return render_template('index.html',
                            title='Home',
                            user=user,
-                           projects=projects,
                            karma=karma,
-                           users=users)
+                           tasks=tasks,
+                           sample_project=sample_project)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -30,6 +31,23 @@ def login():
                            form=form)
 @app.route('/quests')
 def quests():
+    #pull username and password from table
+    users = models.User.query.all()
+    user = todoist.login('davidmccoy@outlook.com', '1001052!')
+    #define quest_object
+        #objects have a quest_name and array of task_name
+    #quest_objects = initialize list of quest_object
+    #for q in quests:
+        #create quest_object
+       # if q.author.username == 'David'
+       #     quest_object.quest_name = q.questName
+            #create task array
+          #  project = user.get_project(q.quest_name)
+          #  quest_object.tasks = project.get_tasks()
+    return render_template('index.html',
+                           title='Home',
+                           user=user,
+                           users=users)
     return render_template('quests.html')
 
 @app.route('/customization')
