@@ -16,5 +16,6 @@ class CustomizationForm(Form):
 	submit = SubmitField('Save Hero!!')
 
 class AddQuestForm(Form):
-	name = StringField('Quest Name')
-	submit = SubmitField('Start Quest!')
+    picture = SelectField('Icon: ', choices = [('', ''), ('sword.png', 'Sword')])
+    name = StringField('Quest Name')
+    submit = SubmitField('Start Quest!')

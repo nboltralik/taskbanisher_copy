@@ -95,8 +95,16 @@ def add_quest():
         user = models.User.query.get(3)
         if form.name.data != '':
             project_name = form.name.data
+            if form.picture.data != '':
+                picture = form.picture.data
+            else:
+                picture = 'generic.png'
             user = todoist.login('davidmccoy@outlook.com', '1001052!')
             user.add_project(project_name)
+            u = models.User.query.get(3)
+            quest = models.Quest(questName=project_name, quest_id=project_name, author=u)
+            db.session.add(quest)
+            db.session.commit()
         return redirect('/quests')
     return render_template('add_quest.html',
                            form=form)
