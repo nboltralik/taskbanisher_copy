@@ -8,10 +8,12 @@ from pytodoist import todoist
 def index():
     user = todoist.login('davidmccoy@outlook.com', '1001052!')
     projects = user.get_projects()
+    karma = user.karma
     return render_template('index.html',
                            title='Home',
                            user=user,
-                           projects=projects)
+                           projects=projects,
+                           karma=karma)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
